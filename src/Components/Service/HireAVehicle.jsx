@@ -99,7 +99,7 @@ const HireAVehicle = () => {
 
           <button
             type='submit' className='sbmtBtn'>
-            Book Ride
+            Hire Vehicle
           </button>
         </form>
       </div>
