@@ -1,7 +1,9 @@
 *{
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
-*{
-  scroll-behavior: auto;
+
+body{
+  background-color: bisque;
 }

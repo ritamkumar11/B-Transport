@@ -14,23 +14,23 @@ const Footer = () => {
           <div className="fServiceCont">
             <h2>Our Services</h2>
             <ul>
-              <li><a href="/CityRides">Book a Cab</a></li>
-              <li><a href="/HireAVehicle">Private Vehicle</a></li>
-              <li><a href="/BookTransportationVehicle">Transport/Carriage</a></li>
+              <li><Link to="/CityRides">Book a Cab</Link></li>
+              <li><Link to="/HireAVehicle">Private Vehicle</Link></li>
+              <li><Link to="/BookTransportationVehicle">Transport/Carriage</Link></li>
             </ul>
           </div>
           <div className="fAboutCont">
             <h2>About</h2>
             <ul>
-              <li><a href="/Company">Company</a></li>
-              <li><a href="/Blog">Blog</a></li>
+              <li><Link to="/Company">Company</Link></li>
+              <li><Link to="/Blog">Blog</Link></li>
             </ul>
           </div>
           <div className="fContactCont">
             <h2>Contact</h2>
             <ul>
-              <li><a href="">Help/FAQ</a></li>
-              <li><a href="">Mail</a></li>
+              <li><Link to="/Help">Help/FAQ</Link></li>
+              <li><a href="mailto:b-transportcontact@gmail.com">Mail</a></li>
             </ul>
           </div>
         </div>

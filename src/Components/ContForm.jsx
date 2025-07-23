@@ -3,8 +3,8 @@ import { useState } from 'react'
 
 const ContForm = () => {
     const [formData, setformData] = useState({
-        firstName: '',
-        lastName: '',
+        name: '',
+        phone: '',
         email: '',
         message: ''
     })
@@ -14,31 +14,49 @@ const ContForm = () => {
         setformData(prev => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData)
-        alert('Message Sent Successfully')
+        try {
+            const res = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
 
-        setformData({
-            name: '',
-            phone: '',
-            email: '',
-            message: ''
-        })
+            const data = await res.json()
+
+            if (res.ok) {
+                alert('Message sent successfully!');
+                setformData({
+                    name: '',
+                    phone: '',
+                    email: '',
+                    message: ''
+                });
+            } else {
+                alert('Something went wrong:' + data.error)
+            }
+        }
+        catch (error) {
+            alert('Failed to send data. Make sure server is running.');
+            console.error(error);
+        }
     }
     return (
         <form onSubmit={handleSubmit} className='cForm'>
-            <h2>Name*</h2>
+            <label>Name*</label>
             <input type="text"
                 name='name'
                 placeholder='Name'
-                value={formData.firstName}
+                value={formData.name}
                 onChange={handleChange}
                 required
                 className='input' />
 
-            <h2>Phone*</h2>
-            <input type="phone"
+            <label>Phone*</label>
+            <input type="tel"
                 name='phone'
                 placeholder='Phone Number'
                 value={formData.phone}
@@ -46,7 +64,7 @@ const ContForm = () => {
                 required
                 className='input' />
 
-            <h2>Email*</h2>
+            <label>Email*</label>
             <input type="email"
                 name='email'
                 placeholder='Enter your Email'
@@ -55,7 +73,7 @@ const ContForm = () => {
                 required
                 className='input' />
 
-            <h2>Message*</h2>
+            <label>Message*</label>
             <textarea name="message"
                 placeholder='Say Something for us...'
                 value={formData.message}

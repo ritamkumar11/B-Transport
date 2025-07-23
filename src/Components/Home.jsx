@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ContForm from './ContForm'
+import { Link, useLocation } from 'react-router-dom';
+
+
 
 const Home = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+            const e = document.getElementById(location.state.scrollTo)
+            if (e) {
+                e.scrollIntoView({ behavior: 'smooth' })
+            }
+        }
+    }, [location])
+
     return (
         <>
             <div className="Container">
@@ -9,46 +23,42 @@ const Home = () => {
             </div>
             <div className='heading' id='Service'><h1>Our Services</h1></div>
             <div className="serviceContainer" >
-                <a href='/CityRides' className='cR'>
+                <Link to='/CityRides' className='cR'>
                     <img src="/Taxi.jpg" alt="Taxi" />
                     <h2 className='Cty1'>Book a Cab</h2>
                     <p className="cty2">Choose Your Destination and Enjoy the Ride.</p>
-                </a>
-                <a href='/HireAVehicle' className='hV'>
+                </Link>
+                <Link to='/HireAVehicle' className='hV'>
                     <img src="/Rental_Cab.jpg" alt="Rental_Cab" />
                     <h2 className="Rntl1">Private Vehicle</h2>
                     <p className="Rntl2">Book a Car on Hourly Basis</p>
-                </a>
-                <a href='/BookTransportationVehicle' className='bTV'>
+                </Link>
+                <Link to='/BookTransportationVehicle' className='bTV'>
                     <img src="/Transport_Carriage.jpg" alt="Transport_Carriage" />
                     <h2 className="Trnsprt1">Transport/Carriage</h2>
                     <p className="Trnsprt2">Book a Carriage or Transport Service</p>
-                </a>
+                </Link>
             </div>
 
             <div className='heading' id='about'><h1>About</h1></div>
             <div className="AboutContainer" >
-                <a href="/Company.jsx">
+                <Link to="/Company">
                     <div className="CompCont">
                         <img src="/Logo2.jpg" alt="LogoOfCompany" />
                         <h2>About B-Transport</h2>
                     </div>
-                </a>
-                <a href="/Blog.jsx">
+                </Link>
+                <Link to="/Blog">
                     <div className="BlogCont">
                         <img src="/Blog.jpg" alt="Blog Logo" />
                         <h2>Blogs</h2>
                     </div>
-                </a>
+                </Link>
             </div >
 
             <div className='heading' id='contact'><h1>Contact Us</h1></div>
             <div className="ContactContainer" >
-                
-                <div className="ContForm">
-                    <ContForm />
-                </div>
-
+                <ContForm />
             </div>
         </>
     )

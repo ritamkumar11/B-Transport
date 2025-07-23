@@ -2,13 +2,17 @@ import './App.css';
 import Layout from './Components/Layout';
 import Home from './Components/Home';
 import Login from './Components/Login';
-import Contacts from './Components/Contacts';
-import About from './Components/About';
-import Services from './Components/Services';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import CityRides from './Components/Service/CityRides';
+import HireAVehicle from './Components/Service/HireAVehicle';
+import BookTransportationVehicle from './Components/Service/BookTransportationVehicle';
+import Company from './Components/About/Company';
+import Blog from './Components/About/Blog';
+import Help from './Components/Help';
+
 function App() {
 
-  const navRouter = createBrowserRouter([
+  const hRouter = createBrowserRouter([
     {
       path: '/',
       element: <><Layout /></>,
@@ -18,21 +22,34 @@ function App() {
           element:<Home />
         },
         {
-          path: '/Services',
-          element: <><Services /></>
-        },
-        {
-          path: '/About',
-          element: <><About /></>
-        },
-        {
-          path: '/Contacts',
-          element: <><Contacts /></>
-        },
-        {
           path: '/Login',
           element: <><Login /></>
+        },
+        {
+          path: '/CityRides',
+          element: <><CityRides /></>
+        },
+        {
+          path: '/HireAVehicle',
+          element: <><HireAVehicle /></>
+        },
+        {
+          path: '/BookTransportationVehicle',
+          element: <>< BookTransportationVehicle /></>
+        },
+        {
+          path: '/Company',
+          element: <><Company /></>
+        },
+        {
+          path: '/Blog',
+          element: <><Blog /></>
+        },
+        {
+          path: '/Help',
+          element: <><Help /></>
         }
+
       ]
     }
 
@@ -40,7 +57,7 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={navRouter} />
+      <RouterProvider router={hRouter} />
 
     </>
   )

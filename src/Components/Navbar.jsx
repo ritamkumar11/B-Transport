@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Login from './Login';
 
 
 const Navbar = () => {
@@ -13,7 +14,14 @@ const Navbar = () => {
     //         </div>
     //     )
     // }
-    
+
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+    const navigate = useNavigate();
+
+    const goToSection = (id) => {
+        navigate('/', { state: { scrollTo: id } });
+    }
     return (
         <>
             <nav className="NavBar">
@@ -25,11 +33,15 @@ const Navbar = () => {
                 <div className="Scontainer2">
                     {/* <Link to='/Services' onMouseEnter={() => setIsHovered(true)}
                         >Services</Link> */}
-                    <a href="#Service">Services</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contacts</a>
-                    <Link to='/Login'>Login/SignUp</Link>
+                    <button onClick={() => goToSection('Service')}>Services</button>
+                    <button onClick={() => goToSection('about')}>About</button>
+                    <button onClick={() => goToSection('contact')}>Contact</button>
+                    <button onClick={() => setIsLoginOpen(true)}>Login/SignUp</button>
                 </div>
+                <Login
+                    isOpen={isLoginOpen}
+                    onclose={() => setIsLoginOpen(false)}
+                />
             </nav>
 
             {/* {isHovered ? <Service /> : ''} */}
