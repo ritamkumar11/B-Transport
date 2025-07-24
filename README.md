@@ -11,8 +11,54 @@
 - MongoDB for storing contact, vehicle, and cargo form submissions
 - Multiple service forms: cab booking, vehicle rental, cargo
 ---
+## 📁 Project Structure
 
-
+B-Transport/
+├── Backend/                  # Optional backend files (possibly unused)
+│   └── index.js              # Server entry point (check if used or duplicate)
+│
+├── node_modules/             # Auto-generated dependencies (DO NOT PUSH)
+│
+├── public/                   # Static assets (images used across app)
+│   ├── Bg_img.png
+│   ├── Bg_img2.png
+│   ├── Blog.jpg
+│   ├── Logo2.jpg
+│   ├── Rental_Cab.jpg
+│   ├── Taxi.jpg
+│   └── Transport_Carriage.jpg
+│
+├── src/                      # All React frontend code
+│   ├── Components/           # Modular components grouped by purpose
+│   │   ├── About/
+│   │   │   └── Blog.jsx
+│   │   │   └── Company.jsx
+│   │   ├── Service/
+│   │   │   ├── BookTransportation.jsx
+│   │   │   ├── CityRides.jsx
+│   │   │   └── HireAVehicle.jsx
+│   │   ├── ContForm.jsx
+│   │   ├── Enquiry.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Help.jsx
+│   │   ├── Home.jsx
+│   │   ├── Layout.jsx
+│   │   ├── Login.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── OurServices.jsx
+│   │   └── Services.jsx
+│
+│   ├── App.js                # Root component
+│   ├── App.css               # Global styles
+│   ├── main.jsx              # App entry point
+│   └── index.html            # HTML shell
+│
+├── .gitignore                # Files/folders Git should ignore
+├── package.json              # Project metadata and dependencies
+├── package-lock.json         # Dependency tree lock
+├── vite.config.js            # Vite config (React build tool)
+├── README.md                 # Project documentation
+└── eslint.config.js          # ESLint configuration
 
 ---
 
