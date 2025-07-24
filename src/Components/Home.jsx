@@ -19,7 +19,7 @@ const Home = () => {
     return (
         <>
             <div className="Container">
-                <img src="/Bg_img.png" alt="Home_Page_Image" />
+                <img src="/Bg_img2.png" alt="Home_Page_Image" />
             </div>
             <div className='heading' id='Service'><h1>Our Services</h1></div>
             <div className="serviceContainer" >
