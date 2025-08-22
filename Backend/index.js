@@ -1,9 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { add } from './add';
+import { contactRouter } from './routes/contact';
 
 const app = express();
-const PORT = 5000;
+const PORT = 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -52,16 +54,8 @@ const cityRide= mongoose.model('cityRide',cityRideSchema);
 const hireVehicle= mongoose.model('hireVehicle',hireVehicleSchema);
 const bookTransportation= mongoose.model('bookTransportation',bookTransportationSchema);
 
-app.post('/api/contact', async (req, res) => {
-    try {
-        console.log('Recieved Data:',req.body)
-        const newContact = new Contact(req.body);
-        await newContact.save();
-        res.status(201).json({ message: 'Form submitted successfully' });
-    } catch (error) {
-        res.status(500).json({ error: 'Error saving data' });
-    }
-});
+app.use('/api/contact',contactRouter)
+
 app.post('/api/cityrides', async (req, res) => {
     try {
         console.log('Recieved Data:',req.body)
@@ -89,13 +83,11 @@ app.post('/api/booktransportation', async (req, res) => {
         console.log('Recieved Data:',req.body)
         const newBook = new bookTransportation(req.body);
         await newBook.save();
-        res.status(201).json({ message: 'Transportation Vehicle Enquiry registered successfully' });
+        res.status(201).json({ message: 'Transportation Vehicle Enquiry registered successfully',sum :add() });
     } catch (error) {
         res.status(500).json({ error: 'Error saving enquiry' });
     }
 });
-
-
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
