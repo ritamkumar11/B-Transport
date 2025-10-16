@@ -14,12 +14,11 @@
 ## 📁 Project Structure
 
 B-Transport/
-├── Backend/                  # Optional backend files (possibly unused)
-│   └── index.js              # Server entry point (check if used or duplicate)
+├── Backend/                 
+│   └── index.js              
+├── node_modules/             
 │
-├── node_modules/             # Auto-generated dependencies (DO NOT PUSH)
-│
-├── public/                   # Static assets (images used across app)
+├── public/                   
 │   ├── Bg_img.png
 │   ├── Bg_img2.png
 │   ├── Blog.jpg
@@ -28,8 +27,8 @@ B-Transport/
 │   ├── Taxi.jpg
 │   └── Transport_Carriage.jpg
 │
-├── src/                      # All React frontend code
-│   ├── Components/           # Modular components grouped by purpose
+├── src/                      
+│   ├── Components/           
 │   │   ├── About/
 │   │   │   └── Blog.jsx
 │   │   │   └── Company.jsx
@@ -48,17 +47,17 @@ B-Transport/
 │   │   ├── OurServices.jsx
 │   │   └── Services.jsx
 │
-│   ├── App.js                # Root component
-│   ├── App.css               # Global styles
-│   ├── main.jsx              # App entry point
-│   └── index.html            # HTML shell
+│   ├── App.js                
+│   ├── App.css               
+│   ├── main.jsx              
+│   └── index.html            
 │
-├── .gitignore                # Files/folders Git should ignore
-├── package.json              # Project metadata and dependencies
-├── package-lock.json         # Dependency tree lock
-├── vite.config.js            # Vite config (React build tool)
-├── README.md                 # Project documentation
-└── eslint.config.js          # ESLint configuration
+├── .gitignore                
+├── package.json              
+├── package-lock.json         
+├── vite.config.js            
+├── README.md                 
+└── eslint.config.js          
 
 ---
 
